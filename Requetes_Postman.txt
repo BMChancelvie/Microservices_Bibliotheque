@@ -1,0 +1,116 @@
+---------------- Insertion Produits ------------------------
+
+POST http://localhost:8080/api/produits
+Headers: Content-Type / application/json
+
+{
+  "typeProduit": "LIVRE",
+  "titre": "Au commencement",
+  "prix": 5000,
+  "stock": 10
+}
+
+{
+  "typeProduit": "CD",
+  "titre": "Michael Jackson",
+  "prix": 3000,
+  "stock": 5
+}
+
+{
+  "typeProduit": "MAGAZINE",
+  "titre": "Les photographes",
+  "prix": 2000,
+  "stock": 15
+}
+
+---------------- Select Produits ------------------------
+
+GET http://localhost:8080/api/produits
+
+---------------- Insertion Personnes ------------------------
+
+POST http://localhost:8080/api/personnes
+Headers: Content-Type / application/json
+
+{
+    "nom": "DUBOIS",
+    "prenom": "Paul",
+    "email": "PaulDubois@dubois.com",
+    "typePersonne": "ADHERENT",
+    "numeroAdherent": "007",
+    "poste": null,
+    "niveauResponsabilite": null,
+    "serviceId": null
+}
+
+{
+    "nom": "JEAN",
+    "prenom": "Frédérique",
+    "email": "frédérique@jean.com",
+    "typePersonne": "EMPLOYE",
+    "numeroAdherent": null,
+    "poste": "Bibliothécaire",
+    "niveauResponsabilite": null,
+    "serviceId": 1
+}
+
+{
+    "nom": "FUTUR",
+    "prenom": "Avenir",
+    "email": "avenir@futur.com",
+    "typePersonne": "RESPONSABLE",
+    "numeroAdherent": null,
+    "poste": "Chef",
+    "niveauResponsabilite": "Rayons Livres d'Informatique",
+    "serviceId": 1
+}
+
+---------------- Select Personnes ------------------------
+
+GET http://localhost:8080/api/personnes
+
+---------------- Insertion Services ------------------------
+
+POST http://localhost:8080/api/services
+Headers: Content-Type / application/json
+
+{
+  "nom": "Informatique"
+}
+
+{
+  "nom": "Livres d'Histoire"
+}
+
+{
+  "nom": "Géographie"
+}
+
+---------------- Select Services ------------------------
+
+GET http://localhost:8080/api/services
+
+
+---------------- Insertion Emprunts ------------------------
+
+POST http://localhost:8080/api/emprunts
+Headers: Content-Type / application/json
+
+{
+  "produitId": 1,
+  "adherentId": 1,
+  "dateEmprunt": "2026-04-22",
+  "dateRetour": "2026-04-30"
+}
+
+{
+  "produitId": 2,
+  "adherentId": 1,
+  "dateEmprunt": "2026-04-22",
+  "dateRetour": "2026-04-30"
+}
+
+---------------- Select Emprunts ------------------------
+
+GET http://localhost:8080/api/emprunts

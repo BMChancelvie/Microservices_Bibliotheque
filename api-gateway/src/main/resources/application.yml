@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+
+        - id: ms-produit
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/produits/**
+
+        - id: ms-emprunt
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/emprunts/**
+
+        - id: ms-personnel
+          uri: http://localhost:8083
+          predicates:
+            - Path=/api/personnes/**,/api/services/**
