@@ -14,7 +14,7 @@ Ordre de démarage:
 Faire des insertions et select via postman
 ( référence: le dossier Captures Ecran Photos )
 
-------------------------------- Mettre en place des pipeline CI/CD dans chaque microservice -----------------
+------------------ Mettre en place des pipeline CI/CD dans chaque microservice -----------------
 
 1 - Placer le fichier: Dockerfile, à la racine de chaque microservice.
 2 - Avoir un compte: Docker Hub.
@@ -37,11 +37,11 @@ git add .
 git commit -m "CI/CD setup"
 git push
 
------------------------------------ Lancer Tous les microservices via le fichier Compose.yml (en cmd) --------------------------------
+-------------- Lancer Tous les microservices via le fichier Compose.yml (en cmd) --------------
 
 docker-compose up --build
 
------------------------------------ Tester les microservices --------------------------------
+------------------ Tester les microservices ------------------------
 
 http://localhost:8080/api/produits
 http://localhost:8080/api/personnes ou http://localhost:8080/api/services
