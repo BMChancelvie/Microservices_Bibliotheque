@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+
+  postgres:
+    image: postgres:15
+    container_name: postgres-db
+    restart: always
+    environment:
+      POSTGRES_DB: bibliotheque
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: futur
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  ms-produit:
+    build: ./ms-produit
+    container_name: ms-produit
+    ports:
+      - "8081:8081"
+    depends_on:
+      - postgres
+
+  ms-personnel:
+    build: ./ms-personnel
+    container_name: ms-personnel
+    ports:
+      - "8083:8083"
+    depends_on:
+      - postgres
+
+  ms-emprunt:
+    build: ./ms-emprunt
+    container_name: ms-emprunt
+    ports:
+      - "8082:8082"
+    depends_on:
+      - postgres
+      - ms-personnel
+      - ms-produit
+
+  api-gateway:
+    build: ./api-gateway
+    container_name: api-gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - ms-produit
+      - ms-personnel
+      - ms-emprunt
+
+volumes:
+  postgres-data:
