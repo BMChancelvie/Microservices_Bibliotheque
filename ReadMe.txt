@@ -26,6 +26,7 @@ Faire des insertions et select via postman
 4 - Ajouter le fichier pipeline GitHub Actions à chaque microservice.
 
 ----------------------------------- Test en Local (en cmd) --------------------------------
+
 Exemple:
 mvn clean package
 docker build -t ms-emprunt .
@@ -35,3 +36,13 @@ lancer le pipeline
 git add .
 git commit -m "CI/CD setup"
 git push
+
+----------------------------------- Lancer Tous les microservices via le fichier Compose.yml (en cmd) --------------------------------
+
+docker-compose up --build
+
+----------------------------------- Tester les microservices --------------------------------
+
+http://localhost:8080/api/produits
+http://localhost:8080/api/personnes ou http://localhost:8080/api/services
+http://localhost:8080/api/emprunts
